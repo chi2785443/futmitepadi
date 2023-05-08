@@ -8,7 +8,7 @@ class Menu_card extends StatelessWidget {
       required this.headertext,
       required this.subtext});
 
-  final Icon cardicon;
+  final Widget cardicon;
   final String headertext;
   final String subtext;
   @override
@@ -30,7 +30,7 @@ class Menu_card extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.cardicon),
+                cardicon,
                 Icon(
                   Icons.account_circle,
                   // Icons(cardicon),

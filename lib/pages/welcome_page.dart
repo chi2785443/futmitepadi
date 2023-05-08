@@ -27,7 +27,29 @@ class Welcome_Page extends StatelessWidget {
               const SizedBox(
                 height: 8.0,
               ),
-              pushbottons(),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                child: MaterialButton(
+                  elevation: 10.0,
+                  onPressed: () {
+                    Navigator.pushNamed(context, 'login_page');
+                  },
+                  height: 40,
+                  color: Colors.purple.shade700,
+                  child: const Center(
+                    child: Text(
+                      'log in',
+                      style: TextStyle(
+                          fontFamily: 'worksansbold',
+                          letterSpacing: 1.50,
+                          fontSize: 18,
+                          fontWeight: FontWeight.normal,
+                          color: Colors.white),
+                    ),
+                  ),
+                ),
+              ),
+              // pushbottons(),
               const SizedBox(
                 height: 10.0,
               ),
