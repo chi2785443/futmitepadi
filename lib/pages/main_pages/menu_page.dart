@@ -1,19 +1,44 @@
 import 'package:flutter/material.dart';
 import 'package:futmitepadi/pages/main_pages/profile_page.dart';
+import 'package:futmitepadi/pages/main_pages/welcome_page.dart';
 import 'aboutus_page.dart';
 import 'Pro_page.dart';
 import 'dashboardpage.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-class Menu_Page extends StatefulWidget {
-  const Menu_Page({Key? key}) : super(key: key);
+class Menu_Page extends StatelessWidget {
+  final user = FirebaseAuth.instance.currentUser!;
 
   @override
-  State<Menu_Page> createState() => _Menu_PageState();
+  Widget build(BuildContext context) {
+    return StreamBuilder<User?>(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Center(child: CircularProgressIndicator());
+            ;
+          } else if (snapshot.hasError) {
+            return Center(child: Text('something went wrong'));
+          } else if (snapshot.hasData) {
+            return Mainmenupage();
+          } else {
+            return Welcome_Page();
+          }
+        });
+  }
 }
 
-class _Menu_PageState extends State<Menu_Page> {
+class Mainmenupage extends StatefulWidget {
+  const Mainmenupage({Key? key}) : super(key: key);
+
+  @override
+  State<Mainmenupage> createState() => _MainmenupageState();
+}
+
+class _MainmenupageState extends State<Mainmenupage> {
+  final user = FirebaseAuth.instance.currentUser!;
   List pages = [
-    const Dashboard(),
+    Dashboard(),
     ProPage(),
     ProfilePage(),
     AboutusPage(),

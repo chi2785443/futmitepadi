@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:futmitepadi/basic_widgets.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'sign_in_page.dart';
 
 class Dashboard extends StatelessWidget {
-  const Dashboard({
+  Dashboard({
     Key? key,
   }) : super(key: key);
+  final user = FirebaseAuth.instance.currentUser!;
 
   @override
   Widget build(BuildContext context) {
@@ -51,8 +54,8 @@ class Dashboard extends StatelessWidget {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const Text(
-                                  'HI, password',
+                                Text(
+                                  'Hi',
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
                                     letterSpacing: 1,

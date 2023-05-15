@@ -1,4 +1,6 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'basic_widgets.dart';
 import 'pages/main_pages/sign_in_page.dart';
 import 'pages/main_pages/welcome_page.dart';
 import 'pages/main_pages/login_page.dart';
@@ -32,8 +34,13 @@ import 'pages/menu_pages/courses_page.dart';
 import 'pages/menu_pages/pretest_selection_page.dart';
 import 'pages/menu_pages/e_portal_page.dart';
 
-void main() {
-  runApp(const MyApp());
+final navigatorKey = GlobalKey<NavigatorState>();
+
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -43,6 +50,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      scaffoldMessengerKey: Utils.messengerKey,
+      navigatorKey: navigatorKey,
       title: 'FUTMITEPADI',
       theme: ThemeData(
         backgroundColor: Colors.white,
@@ -53,9 +62,9 @@ class MyApp extends StatelessWidget {
       // initialRoute: 'welcome_page',
       routes: {
         'welcome_page': (context) => const Welcome_Page(),
-        'sign_in_page': (context) => const Sign_In_Page(),
-        'login_page': (context) => const login_Page(),
-        'menu_page': (context) => const Menu_Page(),
+        'sign_in_page': (context) => Sign_In_Page(),
+        'login_page': (context) => login_Page(),
+        'menu_page': (context) => Menu_Page(),
         'news_introduction_page': (context) => NewsIntroductionPage(),
         'housing_introduction_page': (context) => HousingIntroductionPage(),
         'library_introduction_page': (context) => LibraryIntroductionPage(),

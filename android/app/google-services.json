@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1032103442050",
+    "project_id": "futmite-padi",
+    "storage_bucket": "futmite-padi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1032103442050:android:8d4c2c1912f2d751b5669b",
+        "android_client_info": {
+          "package_name": "com.chineduaguwa.futmitepadi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1032103442050-s8s36dub6siib2rlub6sdostfj94msvf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZD995YUCEE1DDKk770tInimnXWKzipNg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1032103442050-s8s36dub6siib2rlub6sdostfj94msvf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
